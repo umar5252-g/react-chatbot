@@ -15,23 +15,6 @@ function App() {
     localStorage.setItem("messages", JSON.stringify(chatMessages)) || [];
   }, [chatMessages]);
 
-  useEffect(() => {
-    Chatbot.addResponses({
-      goodbye: "Goodbye. Have a great day!",
-      "give me a unique id": function () {
-        return `Sure! Here's a unique ID: ${crypto.randomUUID()}`;
-      },
-      "what are you?": function () {
-        return "I am a chatbot and I am here to help you.";
-      },
-      "whats your name ": "my name is Umars Chatbot ",
-      "what can you do for me ":
-        "wale khair kho de za sa sta nokar yam sa? da tizar zweya lakho",
-    });
-
-    // [] tells useEffect to only run once. We only want to run
-  }, []);
-
   return (
     <div className="app-container">
       {chatMessages.length === 0 && (
