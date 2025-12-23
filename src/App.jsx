@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Chatbot } from "supersimpledev";
 import { ChatInput } from "./components/ChatInput";
 import ChatMessages from "./components/ChatMessages";
+import robot from "./assets/robot.png";
 import "./App.css";
 
 function App() {
@@ -33,18 +34,23 @@ function App() {
   }, []);
 
   return (
-    <div className="app-container">
-      {chatMessages.length === 0 && (
-        <p className="welcome-message">
-          Welcome to the chatbot project! Send a message using the textox below
-        </p>
-      )}
-      <ChatMessages chatMessages={chatMessages} />
-      <ChatInput
-        chatMessages={chatMessages}
-        setChatMessages={setChatMessages}
-      />
-    </div>
+    <>
+      <link rel="icon" href={robot} />
+      <title>Chatbot</title>
+      <div className="app-container">
+        {chatMessages.length === 0 && (
+          <p className="welcome-message">
+            Welcome to the chatbot project! Send a message using the textox
+            below
+          </p>
+        )}
+        <ChatMessages chatMessages={chatMessages} />
+        <ChatInput
+          chatMessages={chatMessages}
+          setChatMessages={setChatMessages}
+        />
+      </div>
+    </>
   );
 }
 
