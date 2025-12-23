@@ -11,7 +11,9 @@ function App() {
   );
   // const chatMessages = array[0];
   // const setChatMessages = array[1];
-
+  let nums = chatMessages.length;
+  console.log(nums);
+  let title = `${nums} messages`;
   useEffect(() => {
     localStorage.setItem("messages", JSON.stringify(chatMessages)) || [];
   }, [chatMessages]);
@@ -36,7 +38,7 @@ function App() {
   return (
     <>
       <link rel="icon" href={robot} />
-      <title>Chatbot</title>
+      <title>{title}</title>
       <div className="app-container">
         {chatMessages.length === 0 && (
           <p className="welcome-message">
